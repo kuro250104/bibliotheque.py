@@ -1,6 +1,6 @@
-import Bdd
+import BDD
 
-class Item(): 
+class User(): 
     
     def __init__(self) -> None:
         pass

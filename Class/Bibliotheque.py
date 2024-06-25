@@ -1,8 +1,6 @@
-import Bdd
-import Class_Item
-import Class_User
 
-class User(): 
+
+class Bibliotheque():
     User_tab = []
     Item_tab = []
     

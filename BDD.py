@@ -1,6 +1,6 @@
 import mysql.connector
 
-class Bdd_Acces():
+class BDD_Acces():
 
     def __init__(self, Getuser : str, Getpassword : str, Gethost : str, Getdatabase :str) -> None:
         self.Connect = mysql.connector.connect(
@@ -11,4 +11,4 @@ class Bdd_Acces():
         ) 
 
     
-Bdd_Biblio = Bdd_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
+BDD_Biblio = BDD_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
