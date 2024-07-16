@@ -1,9 +1,9 @@
-import Class.Bibliotheque as Bibliotheque
-from BDD import BDD_Biblio
+from Class.Bibliotheque import Bibliotheque
+from BDD import BDD_Acces
 
 
-#test = Bibliotheque()
+BDD_Biblio = BDD_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
 
 BDD_Biblio.Init_DB()
 
-#print(test)
+Biblio = Bibliotheque(BDD_Biblio)
