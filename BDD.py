@@ -4,10 +4,10 @@ class BDD_Acces():
 
     def __init__(self, Getuser : str, Getpassword : str, Gethost : str, Getdatabase :str) -> None:
         self.Connect = mysql.connector.connect(
-            user= Getuser,
-            password= Getpassword,
-            host= Gethost,
-            database= Getdatabase
+            user = Getuser,
+            password = Getpassword,
+            host = Gethost,
+            database = Getdatabase
         ) 
 
     def Init_DB(self):
@@ -20,7 +20,7 @@ class BDD_Acces():
             isSet = True
             
         if isSet == False:
-            script_sql = open('E:\\Work\\projet - Data\\Untitled.sql')
+            script_sql = open('Untitled.sql')
             script_Whole = script_sql.read()
             script_sql.close()
             script_tab = script_Whole.split(";")
