@@ -1,5 +1,9 @@
 import Class.Bibliotheque as Bibliotheque
+from BDD import BDD_Biblio
 
-test = Bibliotheque()
 
-print(test)
+#test = Bibliotheque()
+
+BDD_Biblio.Init_DB()
+
+#print(test)
