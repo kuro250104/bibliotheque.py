@@ -21,10 +21,14 @@ class BDD_Acces():
             
         if isSet == False:
             script_sql = open('E:\\Work\\projet - Data\\Untitled.sql')
-            c.execute(script_sql.read())
+            script_Whole = script_sql.read()
             script_sql.close()
-
-
+            script_tab = script_Whole.split(";")
+            
+            for i in range(len(script_tab)):
+                if script_tab[i] != "/*END*/":
+                    c.execute(script_tab[i])
+            
         c.close()   
         
 

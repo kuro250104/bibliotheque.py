@@ -47,4 +47,4 @@ ALTER TABLE `Item` ADD FOREIGN KEY (`genre_id`) REFERENCES `Genre` (`id`);
 
 ALTER TABLE `Item` ADD FOREIGN KEY (`emprunt_id`) REFERENCES `Emprunt` (`id`);
 
-ALTER TABLE `Emprunt` ADD FOREIGN KEY (`user_id`) REFERENCES `Utilisateur` (`id`);
+ALTER TABLE `Emprunt` ADD FOREIGN KEY (`user_id`) REFERENCES `Utilisateur` (`id`);/*END*/
