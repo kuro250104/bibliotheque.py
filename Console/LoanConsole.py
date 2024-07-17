@@ -1,6 +1,6 @@
 from BDD import BDD_Acces
 from Class.Loan import LoanManager
-db_acces = BDD_Acces("root", "", "localhost", "bibliotheque")
+db_acces = BDD_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
 loan_manager = LoanManager(db_acces)
 
 def main():
