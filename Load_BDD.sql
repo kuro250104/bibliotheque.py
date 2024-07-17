@@ -1,0 +1,1 @@
+INSERT INTO type (`name`) VALUES ('Livre'), ('DVD'), ('Microfilm'), ('CD-ROM');/*END*/

@@ -11,7 +11,8 @@ class BDD_Acces():
         ) 
 
     def Init_DB(self):
-        c = self.Connect.cursor()
+        conn = self.Connect
+        c = conn.cursor()
         c.execute("SHOW TABLES")
 
         isSet = False
@@ -20,18 +21,24 @@ class BDD_Acces():
             isSet = True
             
         if isSet == False:
-            script_sql = open('Untitled.sql')
+            script_sql = open('BDD_Init.sql')
             script_Whole = script_sql.read()
             script_sql.close()
             script_tab = script_Whole.split(";")
+            for i in range(len(script_tab)):
+                if script_tab[i] != "/*END*/":
+                   c.execute(script_tab[i])
             
+            script_sql = open('Load_BDD.sql')
+            script_Whole = script_sql.read()
+            script_sql.close()
+            script_tab = script_Whole.split(";")
             for i in range(len(script_tab)):
                 if script_tab[i] != "/*END*/":
                     c.execute(script_tab[i])
-            
+                    
+        conn.commit()           
         c.close()   
-        
-
-    
+            
 BDD_Biblio = BDD_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
 
