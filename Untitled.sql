@@ -44,6 +44,7 @@ CREATE TABLE `Utilisateur` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(50),
   `prenom` varchar(50),
+  `adresse` varchar(50),
   `created_at` timestamp
 );
 

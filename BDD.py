@@ -29,9 +29,7 @@ class BDD_Acces():
                 if script_tab[i] != "/*END*/":
                     c.execute(script_tab[i])
             
-        c.close()   
-        
+        c.close()
 
-    
 BDD_Biblio = BDD_Acces("B2B2", "B2B2", "localhost", "bibliotheque")
 

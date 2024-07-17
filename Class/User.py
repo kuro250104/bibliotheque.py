@@ -1,27 +1,34 @@
-import mysql.connector
-from datetime import date
 from mysql.connector import Error
-import BDD
+from BDD import BDD_Acces
 
-class Utilisateur:
-    def __init__(self, id, nom, prenom, adresse,):
-        self.id = id
-        self.nom = nom
-        self.prenom = prenom
-        self.adresse = adresse
+class User:
+    def __init__(self, db_acces: BDD_Acces):
+        self.db_acces = db_acces
 
-
-    def ajouter(self, bdd_acces):
+    def add_user(self, name, surname, address):
         try:
-            cursor = bdd_acces.Connect.cursor()
-            sql = """
-            INSERT INTO utilisateur (nom, prenom, adresse)
-            VALUES (%s, %s, %s)
-            """
-            val = (self.nom, self.prenom, self.adresse, )
-            cursor.execute(sql, val)
-            bdd_acces.Connect.commit()
-            print(f"Utilisateur {self.nom} {self.prenom} ajouté avec succès")
+            conn = self.db_acces.Connect
+            cursor = conn.cursor()
+            add_user_query = 'INSERT INTO utilisateur (nom, prenom, adresse) VALUES (%s, %s, %s)'
+            user_data = (name, surname, address)
+            cursor.execute(add_user_query, user_data)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            print(f"Utilisateur {name} {surname} ajouté avec succès")
         except Error as e:
             print(f"Erreur lors de l'ajout de l'utilisateur : {e}")
 
+    def remove_user(self, id):
+        try:
+            conn = self.db_acces.Connect
+            cursor = conn.cursor()
+            remove_user_query = 'DELETE FROM utilisateur WHERE id = %s'
+            user_data = ( int(id),)
+            cursor.execute(remove_user_query, user_data)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            print(f"Utilisateur supprimé avec succès")
+        except Error as e:
+            print(f"Erreur lors de la suppression de l'utilisateur : {e}")
